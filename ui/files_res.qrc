@@ -1,0 +1,30 @@
+<RCC>
+  <qresource prefix="resources">
+    <file>icons/edit-copy.png</file>
+    <file>icons/edit-cut.png</file>
+    <file>icons/edit-find-replace.png</file>
+    <file>icons/go-jump.png</file>
+    <file>icons/edit-paste.png</file>
+    <file>icons/edit-redo.png</file>
+    <file>icons/edit-select-all.png</file>
+    <file>icons/edit-undo.png</file>
+    <file>icons/file-exit.png</file>
+    <file>icons/file-new.png</file>
+    <file>icons/file-open.png</file>
+    <file>icons/file-options.png</file>
+    <file>icons/file-print.png</file>
+    <file>icons/zoom-restore.png</file>
+    <file>icons/invisible-char.png</file>
+    <file>icons/view-dlg.png</file>
+    <file>icons/wrap-text.png</file>
+    <file>icons/file-save.png</file>
+    <file>icons/file-save-as.png</file>
+    <file>icons/file-view.png</file>
+    <file>icons/help-about.png</file>
+    <file>icons/notepad.png</file>
+    <file>icons/file-close.png</file>
+    <file>icons/file-close-all.png</file>
+    <file>icons/zoom-in.png</file>
+    <file>icons/zoom-out.png</file>
+  </qresource>
+</RCC>

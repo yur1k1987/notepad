@@ -1,0 +1,684 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>730</width>
+    <height>500</height>
+   </rect>
+  </property>
+  <property name="contextMenuPolicy">
+   <enum>Qt::NoContextMenu</enum>
+  </property>
+  <property name="windowTitle">
+   <string>Notepad</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="files_res.qrc">
+    <normaloff>:/resources/icons/notepad.png</normaloff>:/resources/icons/notepad.png</iconset>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayout_2">
+    <property name="leftMargin">
+     <number>1</number>
+    </property>
+    <property name="topMargin">
+     <number>1</number>
+    </property>
+    <property name="rightMargin">
+     <number>1</number>
+    </property>
+    <property name="bottomMargin">
+     <number>1</number>
+    </property>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>730</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>&amp;File</string>
+    </property>
+    <addaction name="actionNew"/>
+    <addaction name="actionOpen"/>
+    <addaction name="actionSave"/>
+    <addaction name="actionSaveAs"/>
+    <addaction name="separator"/>
+    <addaction name="actionClose"/>
+    <addaction name="actionCloseAll"/>
+    <addaction name="separator"/>
+    <addaction name="actionPrintPreview"/>
+    <addaction name="actionPrint"/>
+    <addaction name="separator"/>
+    <addaction name="actionOptions"/>
+    <addaction name="actionExit"/>
+   </widget>
+   <widget class="QMenu" name="menuEdit">
+    <property name="title">
+     <string>&amp;Edit</string>
+    </property>
+    <widget class="QMenu" name="menuConvertCase">
+     <property name="title">
+      <string>Convert Case to</string>
+     </property>
+     <addaction name="actionUPPERCASE"/>
+     <addaction name="actionLowercase"/>
+     <addaction name="actionProperCase"/>
+    </widget>
+    <widget class="QMenu" name="menuLineOperations">
+     <property name="title">
+      <string>Line Operations</string>
+     </property>
+     <addaction name="actionJoinLines"/>
+     <addaction name="actionRemoveEmptyLines"/>
+     <addaction name="actionRemoveDuplicateLines"/>
+     <addaction name="separator"/>
+     <addaction name="actionSortLinesAscendingOrder"/>
+     <addaction name="actionSortLinesDescendingOrder"/>
+    </widget>
+    <widget class="QMenu" name="menuBlankOperations">
+     <property name="title">
+      <string>Blank Operations</string>
+     </property>
+     <addaction name="actionTrimTrailingSpace"/>
+     <addaction name="actionTrimLeadingSpace"/>
+     <addaction name="actionTabToSpace"/>
+     <addaction name="actionRemoveSpace"/>
+    </widget>
+    <widget class="QMenu" name="menuEOLConversion">
+     <property name="title">
+      <string>EOL Conversion</string>
+     </property>
+     <addaction name="actionWindowsCRLF"/>
+     <addaction name="actionUnixLF"/>
+    </widget>
+    <addaction name="actionUndo"/>
+    <addaction name="actionRedo"/>
+    <addaction name="separator"/>
+    <addaction name="actionCut"/>
+    <addaction name="actionCopy"/>
+    <addaction name="actionPaste"/>
+    <addaction name="actionSelectAll"/>
+    <addaction name="separator"/>
+    <addaction name="actionFindReplace"/>
+    <addaction name="actionGoto"/>
+    <addaction name="separator"/>
+    <addaction name="actionDateTime"/>
+    <addaction name="menuConvertCase"/>
+    <addaction name="menuBlankOperations"/>
+    <addaction name="menuLineOperations"/>
+    <addaction name="menuEOLConversion"/>
+   </widget>
+   <widget class="QMenu" name="menuView">
+    <property name="title">
+     <string>&amp;View</string>
+    </property>
+    <widget class="QMenu" name="menuZoom">
+     <property name="title">
+      <string>Zoom</string>
+     </property>
+     <property name="icon">
+      <iconset resource="files_res.qrc">
+       <normaloff>:/resources/icons/zoom-restore.png</normaloff>:/resources/icons/zoom-restore.png</iconset>
+     </property>
+     <addaction name="actionZoomIn"/>
+     <addaction name="actionZoomOut"/>
+     <addaction name="actionZoomRestore"/>
+     <addaction name="separator"/>
+    </widget>
+    <addaction name="actionAlwaysTop"/>
+    <addaction name="actionShowSpaceTab"/>
+    <addaction name="actionWrapText"/>
+    <addaction name="menuZoom"/>
+    <addaction name="actionSummary"/>
+    <addaction name="separator"/>
+   </widget>
+   <widget class="QMenu" name="menuHelp">
+    <property name="title">
+     <string>&amp;Help</string>
+    </property>
+    <addaction name="actionAbout"/>
+   </widget>
+   <widget class="QMenu" name="menuEncoding">
+    <property name="title">
+     <string>E&amp;ncoding</string>
+    </property>
+    <addaction name="actionUTF8"/>
+    <addaction name="actionUTF8BOM"/>
+    <addaction name="actionUTF16BE"/>
+    <addaction name="actionUTF16LE"/>
+    <addaction name="actionWindows1251"/>
+    <addaction name="actionOEM866"/>
+   </widget>
+   <addaction name="menuFile"/>
+   <addaction name="menuEdit"/>
+   <addaction name="menuView"/>
+   <addaction name="menuEncoding"/>
+   <addaction name="menuHelp"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <widget class="QToolBar" name="toolBarFile">
+   <property name="windowTitle">
+    <string>toolBar</string>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="actionNew"/>
+   <addaction name="actionOpen"/>
+   <addaction name="separator"/>
+   <addaction name="actionSave"/>
+   <addaction name="actionSaveAs"/>
+   <addaction name="separator"/>
+   <addaction name="actionPrintPreview"/>
+   <addaction name="actionPrint"/>
+   <addaction name="separator"/>
+   <addaction name="actionOptions"/>
+  </widget>
+  <widget class="QToolBar" name="toolBarEdit">
+   <property name="windowTitle">
+    <string>toolBar</string>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="actionUndo"/>
+   <addaction name="actionRedo"/>
+   <addaction name="separator"/>
+   <addaction name="actionCut"/>
+   <addaction name="actionCopy"/>
+   <addaction name="actionPaste"/>
+   <addaction name="actionSelectAll"/>
+   <addaction name="separator"/>
+   <addaction name="actionFindReplace"/>
+   <addaction name="actionGoto"/>
+   <addaction name="separator"/>
+  </widget>
+  <widget class="QToolBar" name="toolBarView">
+   <property name="windowTitle">
+    <string>toolBar</string>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="actionAlwaysTop"/>
+   <addaction name="actionShowSpaceTab"/>
+   <addaction name="actionWrapText"/>
+   <addaction name="separator"/>
+   <addaction name="actionZoomIn"/>
+   <addaction name="actionZoomOut"/>
+  </widget>
+  <action name="actionNew">
+   <property name="icon">
+    <iconset resource="files_res.qrc">
+     <normaloff>:/resources/icons/file-new.png</normaloff>:/resources/icons/file-new.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;New</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+N</string>
+   </property>
+  </action>
+  <action name="actionOpen">
+   <property name="icon">
+    <iconset resource="files_res.qrc">
+     <normaloff>:/resources/icons/file-open.png</normaloff>:/resources/icons/file-open.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Open</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+O</string>
+   </property>
+  </action>
+  <action name="actionSave">
+   <property name="icon">
+    <iconset resource="files_res.qrc">
+     <normaloff>:/resources/icons/file-save.png</normaloff>:/resources/icons/file-save.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Save</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+S</string>
+   </property>
+  </action>
+  <action name="actionSaveAs">
+   <property name="icon">
+    <iconset resource="files_res.qrc">
+     <normaloff>:/resources/icons/file-save-as.png</normaloff>:/resources/icons/file-save-as.png</iconset>
+   </property>
+   <property name="text">
+    <string>Save &amp;As</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Shift+S</string>
+   </property>
+  </action>
+  <action name="actionClose">
+   <property name="icon">
+    <iconset resource="files_res.qrc">
+     <normaloff>:/resources/icons/file-close.png</normaloff>:/resources/icons/file-close.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Close</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+W</string>
+   </property>
+  </action>
+  <action name="actionCloseAll">
+   <property name="icon">
+    <iconset resource="files_res.qrc">
+     <normaloff>:/resources/icons/file-close-all.png</normaloff>:/resources/icons/file-close-all.png</iconset>
+   </property>
+   <property name="text">
+    <string>Close &amp;All</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Shift+W</string>
+   </property>
+  </action>
+  <action name="actionPrintPreview">
+   <property name="icon">
+    <iconset resource="files_res.qrc">
+     <normaloff>:/resources/icons/file-view.png</normaloff>:/resources/icons/file-view.png</iconset>
+   </property>
+   <property name="text">
+    <string>Print Preview</string>
+   </property>
+   <property name="toolTip">
+    <string>Print Preview</string>
+   </property>
+  </action>
+  <action name="actionPrint">
+   <property name="icon">
+    <iconset resource="files_res.qrc">
+     <normaloff>:/resources/icons/file-print.png</normaloff>:/resources/icons/file-print.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Print</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+P</string>
+   </property>
+  </action>
+  <action name="actionOptions">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="files_res.qrc">
+     <normaloff>:/resources/icons/file-options.png</normaloff>:/resources/icons/file-options.png</iconset>
+   </property>
+   <property name="text">
+    <string>Options</string>
+   </property>
+  </action>
+  <action name="actionExit">
+   <property name="icon">
+    <iconset resource="files_res.qrc">
+     <normaloff>:/resources/icons/file-exit.png</normaloff>:/resources/icons/file-exit.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Exit</string>
+   </property>
+   <property name="shortcut">
+    <string>Alt+X</string>
+   </property>
+  </action>
+  <action name="actionUndo">
+   <property name="icon">
+    <iconset resource="files_res.qrc">
+     <normaloff>:/resources/icons/edit-undo.png</normaloff>:/resources/icons/edit-undo.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Undo</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Z</string>
+   </property>
+  </action>
+  <action name="actionRedo">
+   <property name="icon">
+    <iconset resource="files_res.qrc">
+     <normaloff>:/resources/icons/edit-redo.png</normaloff>:/resources/icons/edit-redo.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Redo</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Y</string>
+   </property>
+  </action>
+  <action name="actionCut">
+   <property name="icon">
+    <iconset resource="files_res.qrc">
+     <normaloff>:/resources/icons/edit-cut.png</normaloff>:/resources/icons/edit-cut.png</iconset>
+   </property>
+   <property name="text">
+    <string>Cut</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+X</string>
+   </property>
+  </action>
+  <action name="actionCopy">
+   <property name="icon">
+    <iconset resource="files_res.qrc">
+     <normaloff>:/resources/icons/edit-copy.png</normaloff>:/resources/icons/edit-copy.png</iconset>
+   </property>
+   <property name="text">
+    <string>Copy</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+C</string>
+   </property>
+  </action>
+  <action name="actionPaste">
+   <property name="icon">
+    <iconset resource="files_res.qrc">
+     <normaloff>:/resources/icons/edit-paste.png</normaloff>:/resources/icons/edit-paste.png</iconset>
+   </property>
+   <property name="text">
+    <string>Paste</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+V</string>
+   </property>
+  </action>
+  <action name="actionSelectAll">
+   <property name="icon">
+    <iconset resource="files_res.qrc">
+     <normaloff>:/resources/icons/edit-select-all.png</normaloff>:/resources/icons/edit-select-all.png</iconset>
+   </property>
+   <property name="text">
+    <string>Select All</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+A</string>
+   </property>
+  </action>
+  <action name="actionFindReplace">
+   <property name="icon">
+    <iconset resource="files_res.qrc">
+     <normaloff>:/resources/icons/edit-find-replace.png</normaloff>:/resources/icons/edit-find-replace.png</iconset>
+   </property>
+   <property name="text">
+    <string>Find and Replace</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+F</string>
+   </property>
+  </action>
+  <action name="actionGoto">
+   <property name="icon">
+    <iconset resource="files_res.qrc">
+     <normaloff>:/resources/icons/go-jump.png</normaloff>:/resources/icons/go-jump.png</iconset>
+   </property>
+   <property name="text">
+    <string>Go to</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+G</string>
+   </property>
+  </action>
+  <action name="actionZoomRestore">
+   <property name="icon">
+    <iconset resource="files_res.qrc">
+     <normaloff>:/resources/icons/zoom-restore.png</normaloff>:/resources/icons/zoom-restore.png</iconset>
+   </property>
+   <property name="text">
+    <string>Zoom Restore </string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+/</string>
+   </property>
+  </action>
+  <action name="actionZoomIn">
+   <property name="icon">
+    <iconset resource="files_res.qrc">
+     <normaloff>:/resources/icons/zoom-in.png</normaloff>:/resources/icons/zoom-in.png</iconset>
+   </property>
+   <property name="text">
+    <string>Zoom In</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl++</string>
+   </property>
+  </action>
+  <action name="actionZoomOut">
+   <property name="icon">
+    <iconset resource="files_res.qrc">
+     <normaloff>:/resources/icons/zoom-out.png</normaloff>:/resources/icons/zoom-out.png</iconset>
+   </property>
+   <property name="text">
+    <string>Zoom Out</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+-</string>
+   </property>
+  </action>
+  <action name="actionWrapText">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="files_res.qrc">
+     <normaloff>:/resources/icons/wrap-text.png</normaloff>:/resources/icons/wrap-text.png</iconset>
+   </property>
+   <property name="text">
+    <string>Wrap Text</string>
+   </property>
+  </action>
+  <action name="actionAbout">
+   <property name="icon">
+    <iconset resource="files_res.qrc">
+     <normaloff>:/resources/icons/help-about.png</normaloff>:/resources/icons/help-about.png</iconset>
+   </property>
+   <property name="text">
+    <string>About</string>
+   </property>
+   <property name="shortcut">
+    <string>F1</string>
+   </property>
+  </action>
+  <action name="actionAlwaysTop">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="files_res.qrc">
+     <normaloff>:/resources/icons/view-dlg.png</normaloff>:/resources/icons/view-dlg.png</iconset>
+   </property>
+   <property name="text">
+    <string>Always on Top</string>
+   </property>
+  </action>
+  <action name="actionShowSpaceTab">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="files_res.qrc">
+     <normaloff>:/resources/icons/invisible-char.png</normaloff>:/resources/icons/invisible-char.png</iconset>
+   </property>
+   <property name="text">
+    <string>Show White Space and Tab</string>
+   </property>
+  </action>
+  <action name="actionSummary">
+   <property name="text">
+    <string>Summary</string>
+   </property>
+  </action>
+  <action name="actionDateTime">
+   <property name="text">
+    <string>Insert Date and Time</string>
+   </property>
+   <property name="shortcut">
+    <string>F5</string>
+   </property>
+  </action>
+  <action name="actionUPPERCASE">
+   <property name="text">
+    <string>UPPERCASE</string>
+   </property>
+  </action>
+  <action name="actionLowercase">
+   <property name="text">
+    <string>lowercase</string>
+   </property>
+  </action>
+  <action name="actionProperCase">
+   <property name="text">
+    <string>Proper Case</string>
+   </property>
+  </action>
+  <action name="actionRemoveEmptyLines">
+   <property name="text">
+    <string>Remove Empty Lines</string>
+   </property>
+  </action>
+  <action name="actionJoinLines">
+   <property name="text">
+    <string>Join Lines</string>
+   </property>
+  </action>
+  <action name="actionRemoveDuplicateLines">
+   <property name="text">
+    <string>Remove Duplicate Lines</string>
+   </property>
+  </action>
+  <action name="actionSortLinesAscendingOrder">
+   <property name="text">
+    <string>Sort Lines Ascending Order</string>
+   </property>
+  </action>
+  <action name="actionSortLinesDescendingOrder">
+   <property name="text">
+    <string>Sort Lines Descending Order</string>
+   </property>
+  </action>
+  <action name="actionTrimTrailingSpace">
+   <property name="text">
+    <string>Trim Trailing Space</string>
+   </property>
+  </action>
+  <action name="actionTrimLeadingSpace">
+   <property name="text">
+    <string>Trim Leading Space</string>
+   </property>
+  </action>
+  <action name="actionTabToSpace">
+   <property name="text">
+    <string>Tab to Space</string>
+   </property>
+  </action>
+  <action name="actionRemoveSpace">
+   <property name="text">
+    <string>Remove Space</string>
+   </property>
+  </action>
+  <action name="actionWindowsCRLF">
+   <property name="text">
+    <string>Windows (CR LF)</string>
+   </property>
+  </action>
+  <action name="actionUnixLF">
+   <property name="text">
+    <string>Unix (LF)</string>
+   </property>
+  </action>
+  <action name="actionUTF8">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>UTF-8</string>
+   </property>
+  </action>
+  <action name="actionUTF8BOM">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>UTF-8 BOM</string>
+   </property>
+  </action>
+  <action name="actionUTF16BE">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>UTF-16 BE</string>
+   </property>
+  </action>
+  <action name="actionUTF16LE">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>UTF-16 LE</string>
+   </property>
+  </action>
+  <action name="actionWindows1251">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Windows 1251</string>
+   </property>
+  </action>
+  <action name="actionOEM866">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>OEM 866</string>
+   </property>
+  </action>
+ </widget>
+ <resources>
+  <include location="files_res.qrc"/>
+ </resources>
+ <connections/>
+</ui>
