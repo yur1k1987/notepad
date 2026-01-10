@@ -189,7 +189,7 @@ PySide6 Notepad is a cross-platform text editor that combines the simplicity of 
 Clone the repository or download the source code:
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/yur1k1987/notepad.git
 cd notepad
 ```
 
